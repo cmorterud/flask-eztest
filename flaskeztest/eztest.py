@@ -11,8 +11,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 import capybara
 
-from helpers import parse_module_name_from_filepath, convert_sql_table_to_sqlite_table
-from exceptions import FixtureDoesNotExistError
+from .helpers import parse_module_name_from_filepath, convert_sql_table_to_sqlite_table
+from .exceptions import FixtureDoesNotExistError
 
 
 class EZTest(object):
@@ -58,7 +58,7 @@ class EZTest(object):
             with self.app.app_context():
                 self.db.Model.metadata.reflect(reflection_db.engine)
             self.model_clases = self.db.Model.metadata.tables
-            for (_, table) in self.model_clases.iteritems():
+            for (_, table) in list(self.model_clases.items()):
                 convert_sql_table_to_sqlite_table(table)
         else:
             self.reflecting_schema = False
@@ -99,7 +99,7 @@ class EZTest(object):
                     testcase = self.get_runnable_testcase_with_name_from_suite(testcase_name, suite)
                     if testcase is None:
                         return
-                    print "Running testcase %s.%s" % (suite_name, testcase_name)
+                    print(("Running testcase %s.%s" % (suite_name, testcase_name)))
                     runner.run(testcase)
                     break
                 else:

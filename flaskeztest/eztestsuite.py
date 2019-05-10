@@ -5,7 +5,7 @@ import inspect
 
 from termcolor import colored
 
-from eztestcase import EZTestCase
+from .eztestcase import EZTestCase
 
 
 class EZTestSuite(TestSuite):
@@ -38,8 +38,8 @@ class EZTestSuite(TestSuite):
         self.suite_print('Running test suite "%s"~>' % colored(self.name, 'cyan'))
 
     def output_postrun_info(self):
-        print ''
+        print('')
         self.suite_print('Done!')
 
     def suite_print(self, string):
-        print colored(self.OUTPUT_PROMPT, 'yellow') + string
+        print((colored(self.OUTPUT_PROMPT, 'yellow') + string))

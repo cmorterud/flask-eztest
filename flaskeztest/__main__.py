@@ -5,8 +5,8 @@ import sys
 import os
 import logging
 
-from helpers import parse_module_name_from_filepath
-from eztest import EZTest
+from .helpers import parse_module_name_from_filepath
+from .eztest import EZTest
 
 
 def flaskeztest_main():
@@ -19,20 +19,20 @@ def flaskeztest_main():
 
     flask_module = os.environ.get('FLASK_APP')
     if flask_module is None:
-        print "ERROR: FLASK_APP enviromnet variable must be set"
+        print("ERROR: FLASK_APP enviromnet variable must be set")
         sys.exit(1)
 
     try:
         flask_module = import_module(parse_module_name_from_filepath(flask_module))
     except ImportError:
-        print "ERROR: Could not import flask module \"%s\"" % flask_module
+        print(("ERROR: Could not import flask module \"%s\"" % flask_module))
         sys.exit(1)
 
     try:
         app = flask_module.app
         db = flask_module.db
     except AttributeError:
-        print "ERROR: Could not find app or db attribute on flask module."
+        print("ERROR: Could not find app or db attribute on flask module.")
         sys.exit(1)
 
     eztest = EZTest()
@@ -63,7 +63,7 @@ def parse_cmdline_args():
         suite_name = sys.argv[1]
         testcase_name = sys.argv[2]
     else:
-        print "Error: Too many args"
+        print("Error: Too many args")
         sys.exit(1)
 
     return suite_name, testcase_name
