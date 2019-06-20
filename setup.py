@@ -16,7 +16,7 @@ long_description = open('README.rst').read()
 
 setup(
     name='flaskeztest3',
-    version='0.3.1',
+    version='0.3.4',
     author='Stanley Rokita',
     author_email='srok35@gmail.com',
     url='https://github.com/cmorterud/flask-eztest',
@@ -26,7 +26,7 @@ setup(
     packages=['flaskeztest3'],
     entry_points={
         'console_scripts': [
-            'eztest = flaskeztest.__main__:flaskeztest_main'
+            'eztest = flaskeztest3.__main__:flaskeztest_main'
         ]
     }
 )

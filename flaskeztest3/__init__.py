@@ -12,8 +12,7 @@ from .eztestsuite import EZTestSuite
 def init_selenium_driver(app):
 
     from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-    capabilities = DesiredCapabilities.PHANTOMJS.copy()
+    capabilities = DesiredCapabilities.CHROME.copy()
 
     from capybara.selenium.driver import Driver
-
-    return Driver(app, browser="phantomjs", desired_capabilities=capabilities)
+    return Driver(app, browser="chrome", desired_capabilities=capabilities)
