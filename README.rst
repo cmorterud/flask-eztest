@@ -5,12 +5,14 @@ Making flask app's that serve html and use a flasksqlalchemy backend engine easi
 
 Setup
 -----
-.. code::
-    $ pip install flaskeztest
+.. code:: bash
+
+    $ pip install flaskeztest3
 
 Make sure you set the environemnt variable FLASK_APP to the file path of your main app module
 
-.. code::
+.. code:: bash
+
     $ export FLASK_APP=myapp/app.py
 
 flaskeztest will expect there to be a variable named 'app' under this module and another named 'db'.
@@ -31,7 +33,8 @@ flaskeztest will expect there to be a variable named 'app' under this module and
 
 Then run all test suites with eztest command
 
-.. code::
+.. code:: bash
+
     $ eztest
 
 Other options
@@ -39,7 +42,7 @@ Other options
 
 for running one testcase under a suite
 
-.. code::
+.. code:: bash
 
     $ eztest [suite] [testcase]
 
@@ -47,7 +50,7 @@ or
 
 for running one whole suite
 
-.. code::
+.. code:: bash
 
     $ eztest [suite]
 
@@ -68,12 +71,14 @@ i.e:
 Make sure that the suites package has a ```suite_names``` list in its __init__.py'
 
 .. code:: python
+
     # suites/__init__.py
     suite_names = ['index']
 
 And then in normal config module
 
 .. code:: python
+
     # config.py
     
     EZTEST_CONFIG_MODULE='test/config'
@@ -82,6 +87,7 @@ And then in normal config module
 Then in flask app module set config from normal config module
 
 .. code:: python
+
     # myapp.py
     app = Flask(__name__)
     app.from_object('config')
@@ -119,7 +125,7 @@ Example:
 
 myfix.json
 
-.. code::
+.. code:: json
 
     [
         {
@@ -135,7 +141,7 @@ or with  multiple entries for one model:
 
 myfix2.json
 
-.. code::
+.. code:: json
 
     [
         {

@@ -15,15 +15,15 @@ description = "Tool to make integration testing flask app's using flask_sqlalche
 long_description = open('README.rst').read()
 
 setup(
-    name='flaskeztest',
-    version='0.3.0',
+    name='flaskeztest3',
+    version='0.3.1',
     author='Stanley Rokita',
     author_email='srok35@gmail.com',
-    url='https://github.com/Srokit/flask-eztest',
+    url='https://github.com/cmorterud/flask-eztest',
     description=description,
     long_description=long_description,
     install_requires=requirements,
-    packages=['flaskeztest'],
+    packages=['flaskeztest3'],
     entry_points={
         'console_scripts': [
             'eztest = flaskeztest.__main__:flaskeztest_main'
