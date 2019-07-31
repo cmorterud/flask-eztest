@@ -170,6 +170,13 @@ class EZTest(object):
             self.testsuites.append(module.suite)
 
     def seed_db_with_row_dict(self, model_name, row):
+        from dateutil.parser import parse
+        for (k, v) in row.items():
+            try:
+                row[k] = parse(v)
+            except:
+                pass
+               
         if self.reflecting_schema:
             model_tab = self.model_clases[model_name]
             q = model_tab.insert().values(**row)
