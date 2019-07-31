@@ -16,7 +16,7 @@ long_description = open('README.rst').read()
 
 setup(
     name='flaskeztest3',
-    version='0.3.4',
+    version='0.3.5',
     author='Stanley Rokita',
     author_email='srok35@gmail.com',
     url='https://github.com/cmorterud/flask-eztest',
